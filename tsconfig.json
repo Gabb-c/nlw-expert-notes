@@ -22,10 +22,10 @@
     "noUncheckedIndexedAccess": true,
 
     /* Paths */
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@components/*": ["components/*"],
-      "@assets/*": ["assets/*"]
+      "@components/*": ["src/components/*"],
+      "@assets/*": ["src/assets/*"]
     }
 
   },
