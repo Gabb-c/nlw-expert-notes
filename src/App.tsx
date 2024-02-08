@@ -1,7 +1,7 @@
 import logo from "@assets/logo-nlw-expert.svg";
 import { NoteCard } from "@components/NoteCard";
 
-const App: React.FC = (): JSX.Element => {
+export const App: React.FC = (): JSX.Element => {
   return (
     <div className="mx-auto max-w-6xl my-12 space-y-6">
       <img src={logo} alt="NLW Expert Logo" />
@@ -28,5 +28,3 @@ const App: React.FC = (): JSX.Element => {
     </div>
   );
 };
-
-export { App };
