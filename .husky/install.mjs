@@ -1,11 +1,4 @@
 // Skip Husky install in production and CI
-if (isProduction() || isCI()) {
-  console.log("Skipping Husky installation in production or CI environment.");
-  process.exit(0);
-} else {
-  installHusky();
-}
-
 const installHusky = async () => {
   try {
     (await import("husky")).default();
@@ -19,3 +12,10 @@ const installHusky = async () => {
 const isProduction = () => process.env.NODE_ENV === "production";
 
 const isCI = () => process.env.CI === "true";
+
+if (isProduction() || isCI()) {
+  console.log("Skipping Husky installation in production or CI environment.");
+  process.exit(0);
+} else {
+  installHusky();
+}
