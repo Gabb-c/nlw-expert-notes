@@ -1,0 +1,41 @@
+name: Build
+
+on:
+  pull_request:
+    branches:
+      - "**"
+
+  push:
+    branches:
+      - "**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [lts/hydrogen, lts/iron, latest]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@main
+
+      - uses: pnpm/action-setup@master
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: latest
+          run_install: false
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@main
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
