@@ -1,12 +1,13 @@
 /// <reference types="vitest" />
 
 import react from "@vitejs/plugin-react-swc";
-import { defineConfig } from "vite";
+import { defineConfig, splitVendorChunkPlugin } from "vite";
+import tsconfigPaths from "vite-tsconfig-paths";
 import { name as projectName } from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), splitVendorChunkPlugin(), tsconfigPaths()],
   test: {
     globals: true,
     environment: "jsdom",
@@ -17,5 +18,12 @@ export default defineConfig({
       include: ["src"],
     },
     name: projectName,
+  },
+  server: {
+    host: true,
+    port: 8000,
+    watch: {
+      usePolling: true,
+    },
   },
 });
