@@ -1,16 +1,16 @@
 {
   "name": "nlw-expert-notes",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
+    "build": "tsc --extendedDiagnostics && vite build -d",
     "dev": "vite -d",
-    "build": "tsc && vite build -d",
-    "preview": "vite preview",
     "postinstall": "node .husky/install.mjs",
+    "preview": "vite preview",
     "test": "vitest run",
-    "test:dev": "vitest dev --logHeapUsage",
     "test:coverage": "vitest run --coverage",
+    "test:dev": "vitest dev --logHeapUsage",
     "test:ui": "vitest --ui"
   },
   "dependencies": {
@@ -31,8 +31,8 @@
     "@vitest/coverage-v8": "^1.2.2",
     "@vitest/ui": "^1.2.2",
     "autoprefixer": "^10.4.17",
-    "husky": "^9.0.10",
     "cssnano": "^6.0.3",
+    "husky": "^9.0.10",
     "jsdom": "^24.0.0",
     "lint-staged": "^15.2.2",
     "postcss": "^8.4.35",
